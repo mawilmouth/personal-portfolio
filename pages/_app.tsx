@@ -1,4 +1,4 @@
-import '../styles/globals'
+import '../styles/globals.scss'
 
 const Portfolio = ({ Component, pageProps }) => {
   return <Component {...pageProps} />
