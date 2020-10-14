@@ -1,7 +1,8 @@
 const Homepage: React.FC = () => {
   return (
-    <div>
-      Homepage
+    <div className="row">
+      <div className="columns">left</div>
+      <div className="columns">right</div>
     </div>
   )
 }
