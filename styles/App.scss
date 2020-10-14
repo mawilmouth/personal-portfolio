@@ -1,0 +1,42 @@
+// Vendor Imports
+@import 'foundation-sites/scss/foundation.scss';
+@include foundation-flex-grid;
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-close-button;
+
+
+// Global styles
+@import './globals';
+
+
+// Modules
+@import './modules/Buttons';
+
+
+// Layout
+@import './layout/TopNav';
+@import './layout/Footer';
+
+
+// Pages
+@import './pages/homepage/Homepage';
+
+
+body {
+  margin: 0px;
+  height: 100vh;
+  font-family: $sb_font_family;
+
+  .row {
+    @include screenbreak($xlarge) { max-width: 85rem; }
+    @include screenbreak($xxlarge) { max-width: 100rem; }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
