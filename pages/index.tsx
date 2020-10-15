@@ -1,11 +1,12 @@
+import React from 'react';
+import BasicLayout from '../layout/BasicLayout';
+
 const Homepage: React.FC = () => {
   return (
-    <div className="row">
-      <div className="columns">left</div>
-      <div className="columns">right</div>
-    </div>
+    <BasicLayout clearNav headTitle="Home">
+      <div className="homepage-container">homepage</div>
+    </BasicLayout>
   )
 }
-
 
 export default Homepage;
