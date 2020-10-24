@@ -1,11 +1,23 @@
 // Fonts 
-$sb_black_font: #232323;
-$sb_grey_font: #C5CAC4;
-$sb_dark_grey_font: #AAADA9;
-$sb_white_font: #F3FDF1;
+$port_black_font: #232323;
+$port_grey_font: #C5CAC4;
+$port_dark_grey_font: #AAADA9;
+$port_white_font: #F3FDF1;
 
 
-$sb_light_green--primary: #54a743;
-$sb_light_green--secondary: #396f2e;
-$sb_green: #166407;
-$sb_dark_green: #0E4005;
+// Whites
+$port_white: #FAFAFA;
+$port_transparent_white: rgba(255, 255, 255, 0.3);
+
+
+// Greys
+$port_light_grey: #F0F0F0;
+$port_grey: #E3DDDD;
+
+
+// Blacks
+$port_black: rgb(10, 10, 10);
+
+
+// Blues
+$port_blue: #00009C;
