@@ -1,0 +1,73 @@
+.layout-container .footer-container {
+  padding: 30px 0px;
+  background-color: $port_dark_grey--variant-2;
+
+  .footer-row {
+    position: relative;
+
+    .columns {
+      padding: 20px 0px;
+      @include flex-align(row, center, center);
+    }
+
+    .links-container {
+      .social-media-link {
+        margin: 0px 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: $port_dark_grey--variant-1;
+        transition: 300ms all;
+
+        &:nth-child(1) {
+          margin-left: 0px;
+        }
+        
+        &:nth-child(3) {
+          margin-right: 0px;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        .link {
+          display: block;
+          width: 100%;
+          height: 100%;
+          @include flex-align(column, center, center);
+
+          .icon {
+            width: 20px;
+            height: 20px;
+            
+            path {
+              fill: $port_white;
+              stroke: $port_dark_grey--variant-2;
+            }
+          }
+        }
+
+        @include screenbreak($large) {
+          width: 50px;
+          height: 50px;
+
+          .link .icon {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+
+    .logo-container {
+      @include flex-align(row, center, center);
+
+      .logo { width: 120px; }
+
+      @include screenbreak($large) {
+        .logo { width: 150px; }
+      }
+    }
+  }
+}
