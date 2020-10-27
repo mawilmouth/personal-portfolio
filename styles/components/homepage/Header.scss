@@ -56,7 +56,14 @@
     .icon {
       width: 40px;
       height: 40px;
+      transition: transform 300ms;
       animation: bounce 3s infinite;
+
+      &:hover {
+        path {
+          fill: $port_blue;
+        }
+      }
 
       @keyframes bounce {
         0% {
@@ -72,6 +79,7 @@
 
       path {
         fill: $port_white;
+        transition: fill 300ms;
       }
     }
   }

@@ -15,7 +15,7 @@ export const topNavData = {
     },
     {
       text: 'contact',
-      route: '/contact'
+      route: '#contact'
     }
   ]
 }

@@ -11,6 +11,7 @@ const Homepage: React.FC = () => {
         <HeroHeader
           heading={headerData.heading} 
           subheading={headerData.subheading}
+          jumpTo={headerData.jumpTo}
         />
       </div>
     </BasicLayout>
