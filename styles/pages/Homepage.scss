@@ -1,5 +1,6 @@
+@import '../components//homepage//Header';
+
+
 .homepage-container {
-  height: 120vh;
   background-color: $port_grey;
-  @include flex-align(column, center, center);
 }

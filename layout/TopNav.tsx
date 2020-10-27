@@ -27,9 +27,9 @@ const TopNav: React.FC<TopNavProps> = (props) => {
     setNavActive(!navActive);
   }
 
-  function checkScrollPos(): void {
+  function handleClearNav(): void {
     const pos: number = window.pageYOffset;
-    if (pos < 150) {
+    if (pos < 150 && !navActive) {
       setClearActive(true);
     } else {
       setClearActive(false);
@@ -37,11 +37,11 @@ const TopNav: React.FC<TopNavProps> = (props) => {
   }
 
   React.useEffect(() => {
-    checkScrollPos();
-    document.addEventListener('scroll', checkScrollPos);
+    handleClearNav();
+    document.addEventListener('scroll', handleClearNav);
 
     return () => {
-      document.removeEventListener('scroll', checkScrollPos);
+      document.removeEventListener('scroll', handleClearNav);
     };
   });
   
