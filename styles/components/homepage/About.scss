@@ -1,0 +1,35 @@
+.homepage-about-container {
+  background-color: $port_white;
+
+  .wrapper .columns{
+    @include flex-align(column, flex-start, center);
+
+    .about-heading {
+      margin: 45px 0px 20px;
+      font-size: 30px;
+      text-transform: capitalize;
+      color: $port_black_font;
+    }
+  
+    .portrate-img {
+      width: 150px;
+      border-radius: 100%;      
+    }
+
+    .bio-container {
+      margin: 30px 20px 40px;
+
+      .bio {
+        max-width: 600px;
+        font-size: 14px;
+        color: $port_black_font;
+      }
+    }
+
+    @include screenbreak($medium) {
+      .about-heading { font-size: 40px; }
+      .portrate-img { width: 200px; }
+      .bio-container .bio { font-size: 16px; }
+    }
+  }
+}

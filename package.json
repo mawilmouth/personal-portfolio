@@ -8,11 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "foundation-sites": "^6.6.3",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-burger-menu": "^2.9.0",
     "react-dom": "16.13.1",
+    "react-in-viewport": "^1.0.0-alpha.15",
     "sass": "^1.27.0"
   },
   "devDependencies": {
