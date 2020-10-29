@@ -2,9 +2,11 @@ import React from 'react';
 import BasicLayout from '../layout/BasicLayout';
 import HeroHeader from '../components/homepage/Header';
 import About from '../components/homepage/About';
+import Passions from '../components/homepage/Passions';
 
 import { headerData } from '../staticData/Header';
 import { aboutData } from '../staticData/About';
+import { passionsData } from '../staticData/Passions';
 
 const Homepage: React.FC = () => {
   return (
@@ -19,6 +21,7 @@ const Homepage: React.FC = () => {
           portrateImg={aboutData.portrateImg}
           bio={aboutData.bio}
         />
+        <Passions passions={passionsData.passions} />
       </div>
     </BasicLayout>
   )

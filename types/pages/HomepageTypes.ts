@@ -17,3 +17,13 @@ export interface BioProps {
   inViewport: boolean;
   forwardedRef: React.Ref<HTMLDivElement>;
 }
+
+
+// What I do
+export interface PassionsProps {
+  passions: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+}
