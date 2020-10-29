@@ -57,7 +57,7 @@
       width: 40px;
       height: 40px;
       transition: transform 300ms;
-      animation: bounce 3s infinite;
+      animation: arrow-down 3s infinite;
 
       &:hover {
         path {
@@ -65,7 +65,7 @@
         }
       }
 
-      @keyframes bounce {
+      @keyframes arrow-down {
         0% {
           transform: translateY(0px);
         }
