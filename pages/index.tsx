@@ -3,6 +3,7 @@ import BasicLayout from '../layout/BasicLayout';
 import HeroHeader from '../components/homepage/Header';
 import About from '../components/homepage/About';
 import Passions from '../components/homepage/Passions';
+import HistoryCard from '../components/homepage/History';
 
 import { headerData } from '../staticData/Header';
 import { aboutData } from '../staticData/About';
@@ -22,6 +23,7 @@ const Homepage: React.FC = () => {
           bio={aboutData.bio}
         />
         <Passions passions={passionsData.passions} />
+        <HistoryCard />
       </div>
     </BasicLayout>
   )

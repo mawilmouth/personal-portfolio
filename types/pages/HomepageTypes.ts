@@ -27,3 +27,9 @@ export interface PassionsProps {
     description: string;
   }[];
 }
+
+
+// History Card
+export interface HistoryCardProps {
+  
+}
