@@ -1,0 +1,102 @@
+.history-card-container {
+  background-color: $port_grey--variant-1;
+
+  .card-row {
+
+    .history-card-wrapper {
+      padding: 0px 20px;
+
+      .card {
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translateY(-50px);
+        padding: 30px 20px;
+        background-color: $port_white;
+
+        .work-history-column {
+          @include flex-align(column, flex-start, center);
+
+          &:nth-child(2) .history-heading {
+            @include screenbreak($small, $large) {
+              margin-top: 30px;
+            }
+          }
+
+          .history-heading {
+            margin-bottom: 25px;
+            font-size: 18px;
+            text-align: center;
+            text-transform: capitalize;
+            color: $port_black;
+
+            @include screenbreak($medium) {
+              font-size: 22px;
+            }
+
+            @include screenbreak($large) {
+              font-size: 24px;
+            }
+          }
+
+          .tech-icons-container {
+            border-radius: 10px;
+            width: auto;
+            background-color: $port_light_grey;
+            @include flex-align(row, center);
+            flex-wrap: wrap;
+
+            .icon {
+              width: 40px;
+              height: 40px;
+              margin: 15px;
+              cursor: pointer;
+
+              @include screenbreak($medium) {
+                width: 50px;
+                height: 50px;
+                margin: 20px 15px;
+              }
+              
+              path {
+                transition: fill 300ms;
+                fill: $port_dark_grey--variant-1;
+              }
+
+              &.html:hover path { fill: rgb(176, 76, 0); }
+              &.css:hover path { fill: rgb(56, 56, 245); }
+              &.sass:hover path { fill: rgb(165, 47, 165); }
+              &.js:hover path { fill: rgb(203, 197, 41); }
+              &.jquery:hover path { fill: rgb(56, 56, 245); }
+              &.react:hover path { fill: rgb(71, 156, 247); }
+              &.next:hover path { fill: rgb(0, 0, 0); }
+              &.node:hover path { fill: rgb(25, 106, 25); }
+              &.rails:hover path { fill: rgb(179, 43, 43); }
+              &.sql:hover path { fill: rgb(119, 119, 255); }
+              &.git:hover path { fill: rgb(210, 99, 2); }
+            }
+          }
+
+          .work-history-container {
+            @include flex-align(column, center);
+            flex-grow: 1;
+
+            a {
+              &:nth-child(1) {
+                margin-bottom: 30px;
+              }
+
+              @include screenbreak($large) {
+                flex-grow: 1;
+                margin: 0px;
+              }
+
+              .work-logo {
+                width: 300px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
