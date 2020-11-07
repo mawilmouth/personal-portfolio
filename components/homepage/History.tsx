@@ -7,6 +7,7 @@ import {
   JSIcon,
   JqueryIcon,
   ReactIcon,
+  JestIcon,
   NextIcon,
   NodeIcon,
   RailsIcon,
@@ -31,6 +32,7 @@ const HistoryCard: React.FC<HistoryCardProps> = (props) => {
                   <JSIcon className="icon js" />
                   <JqueryIcon className="icon jquery" />
                   <ReactIcon className="icon react" />
+                  <JestIcon className="icon jest" />
                   <NextIcon className="icon next" />
                   <NodeIcon className="icon node" />
                   <RailsIcon className="icon rails" />
