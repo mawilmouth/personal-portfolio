@@ -29,4 +29,8 @@ const Homepage: React.FC = () => {
   )
 }
 
+export const getStaticProps = async ()  => ({
+  props: {}
+});
+
 export default Homepage;
