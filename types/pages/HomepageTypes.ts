@@ -30,6 +30,19 @@ export interface PassionsProps {
 
 
 // History Card
-export interface HistoryCardProps {
-  
+export interface HistoryCardProps {}
+
+
+// Projects
+export interface ProjectsProps {
+  projects: {
+    name: string;
+    img: string;
+    location: {
+      url: string;
+      external?: boolean;
+    };
+    description: string;
+    tech: string[];
+  }[];
 }

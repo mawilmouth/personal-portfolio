@@ -1,0 +1,128 @@
+.homepage-projects-container {
+  background-color: $port_grey--variant-1;
+  padding: 30px 0px;
+
+  .projects-row {
+    .project {
+      @include flex-align(column, center, center);
+      margin: 20px 0px;
+      padding: 0px 20px;
+
+      @include screenbreak($large) {
+        @include flex-align(row, center, center);
+
+        &.reverse {
+          flex-direction: row-reverse;
+
+          .project-info-container {
+            margin-right: 40px;
+            
+            .project-name {
+              text-align: right;
+            }
+
+            .project-desc {
+              transform: translateX(70px);
+            }
+
+            .tech-container {
+              flex-direction: row-reverse;
+              margin: 0px 0px 0px 70px
+            }
+          }
+        }
+      }
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      .project-link {
+        border-radius: 10px;
+        overflow: hidden;
+
+        &:hover {
+          img { transform: scale(1.1); }
+        }
+
+        img {
+          width: 600px;
+          transition: all 300ms;
+        }
+      }
+
+      .project-info-container {
+        max-width: 500px;
+        margin: 30px 0px;
+
+        .project-name {
+          margin-bottom: 15px;
+          font-size: 25px;
+          text-transform: capitalize;
+          text-align: center;
+          color: $port_black;
+        }
+
+        .project-desc {
+          padding: 20px;
+          background-color: $port_light_grey;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        .tech-container {
+          @include flex-align(row, center, center);
+          flex-wrap: wrap;
+
+          .tech {
+            margin: 0px 5px;
+            font-size: 14px;
+            text-transform: capitalize;
+            text-decoration: underline $port_dark_grey--variant-1;
+            color: $port_dark_grey--variant-2;
+
+            &:first-child {
+              margin-left: 0px;
+            }
+          }
+        }
+
+        @include screenbreak($medium) {
+          .project-name {
+            font-size: 30px;
+          }
+
+          .project-desc {
+            padding: 20px;
+            font-size: 16px;
+          }
+
+          .tech-container .tech {
+            font-size: 16px;
+          }
+        }
+
+        @include screenbreak($large) {
+          margin-left: 40px;
+
+          .project-name {
+            text-align: left;
+          }
+
+          .project-desc {
+            transform: translateX(-70px);
+          }
+
+          .tech-container {
+            @include flex-align();
+            margin-right: 70px;
+          }
+        }
+      }
+    }
+  }
+}

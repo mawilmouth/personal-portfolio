@@ -4,10 +4,12 @@ import HeroHeader from '../components/homepage/Header';
 import About from '../components/homepage/About';
 import Passions from '../components/homepage/Passions';
 import HistoryCard from '../components/homepage/History';
+import Projects from '../components/homepage/Projects';
 
 import { headerData } from '../staticData/Header';
 import { aboutData } from '../staticData/About';
 import { passionsData } from '../staticData/Passions';
+import { projectsData } from '../staticData/Projects';
 
 const Homepage: React.FC = () => {
   return (
@@ -24,6 +26,7 @@ const Homepage: React.FC = () => {
         />
         <Passions passions={passionsData.passions} />
         <HistoryCard />
+        <Projects projects={projectsData} />
       </div>
     </BasicLayout>
   )
