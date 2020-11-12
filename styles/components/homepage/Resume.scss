@@ -1,0 +1,65 @@
+.homepage-resume-section {
+  height: 200px;
+  background-image: url('/images/html.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  @include screenbreak($medium) {
+    height: 250px;
+  }
+
+  .content-wrapper {
+    height: 100%;
+    @include flex-align(column, center, center);
+    background-color: rgba(0, 0, 0, 0.8);
+
+    h6 {
+      margin: 0px 0px 20px;
+      font-size: 25px;
+      text-transform: capitalize;
+      color: $port_white;
+    }
+
+    a {
+      padding: 10px 20px;
+      background-color: rgba($port_white, 0.1);
+      border: 2px solid rgba($port_white, 0.5);
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $port_white;
+      transition: border-color 200ms, background-color 200ms, padding 200ms;
+
+      &:hover {
+        background-color: rgba($port_white, 0.3);
+        border-color: rgba($port_white, 0.8);
+        padding: 10px 30px;
+      }
+    }
+
+    @include screenbreak($medium) {
+      h6 {
+        margin-bottom: 20px;
+        font-size: 25px;
+      }
+
+      a {
+        font-size: 16px;
+      }
+    }
+
+    @include screenbreak($large) {
+      h6 {
+        margin-bottom: 30px;
+        font-size: 30px;
+      }
+
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+}

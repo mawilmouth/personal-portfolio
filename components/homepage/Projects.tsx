@@ -30,7 +30,7 @@ const Projects: React.FC<ProjectsProps> = (props) => {
       }
 
       return (
-        <div className={`columns project${reverseClass} small-12`}>
+        <div key={`project-${++index}`} className={`columns project${reverseClass} small-12`}>
           {link}
           <div className="project-info-container">
             <h3 className="project-name">{item.name}</h3>
