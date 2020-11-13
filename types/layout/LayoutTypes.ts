@@ -14,6 +14,7 @@ export interface TopNavProps {
 export interface NavLinkProps {
   route: string;
   text: string;
+  external?: boolean;
 }
 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { TopNavProps, NavLinkProps } from '../types/layout/LayoutTypes';
-import { buildNavLinks } from '../helpers/layout/topNavHelpers';
 import { slide as Menu } from 'react-burger-menu'
 
 const TopNav: React.FC<TopNavProps> = (props) => {
@@ -9,7 +8,6 @@ const TopNav: React.FC<TopNavProps> = (props) => {
   const [clearActive, setClearActive] = React.useState(false);
   const transparentClass: string = props.clearNav && clearActive ? ' transparent' : '';
   const burgerActiveClass: string = navActive ? ' active' : '';
-  const navLinks: React.ReactNode [] = buildNavLinks(props.links);
 
   const menuOptions = {
     left: true,
@@ -22,6 +20,17 @@ const TopNav: React.FC<TopNavProps> = (props) => {
     isOpen: navActive,
     onClose: () => setNavActive(!navActive)
   };
+
+  function renderNavLinks(): React.ReactNode[] {
+    return props.links.map((link, index) => (
+      <NavLink
+        text={link.text}
+        route={link.route}
+        external={link.external}
+        key={`nav-link-${index}`}
+      />
+    ));
+  }
 
   function handleBurgerClick(): void {
     setNavActive(!navActive);
@@ -44,6 +53,8 @@ const TopNav: React.FC<TopNavProps> = (props) => {
       document.removeEventListener('scroll', handleClearNav);
     };
   });
+
+  const navLinks: React.ReactNode[] = renderNavLinks();
   
   return (
     <React.Fragment>
@@ -78,12 +89,18 @@ const TopNav: React.FC<TopNavProps> = (props) => {
 }
 
 export const NavLink: React.FC<NavLinkProps> = (props) => {
-  return (
-    <div className="link-container">
+  let link: React.ReactNode = <a className="link" href={props.route} target="_blank">{props.text}</a>;
+
+  if (!props.external) {
+    link = (
       <Link href={props.route}>
         <a className="link">{props.text}</a>
       </Link>
-    </div>
+    );
+  }
+
+  return (
+    <div className="link-container">{link}</div>
   );
 }
 

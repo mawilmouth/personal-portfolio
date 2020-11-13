@@ -16,6 +16,11 @@ export const topNavData = {
     {
       text: 'contact',
       route: '#contact'
+    },
+    {
+      text: 'resume',
+      route: '/files/resume.pdf',
+      external: true
     }
   ]
 }

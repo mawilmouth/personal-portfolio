@@ -5,6 +5,7 @@ import About from '../components/homepage/About';
 import Passions from '../components/homepage/Passions';
 import HistoryCard from '../components/homepage/History';
 import Projects from '../components/homepage/Projects';
+import Resume from '../components/homepage/Resume';
 
 import { headerData } from '../staticData/Header';
 import { aboutData } from '../staticData/About';
@@ -27,6 +28,7 @@ const Homepage: React.FC = () => {
         <Passions passions={passionsData.passions} />
         <HistoryCard />
         <Projects projects={projectsData} />
+        <Resume />
       </div>
     </BasicLayout>
   )
