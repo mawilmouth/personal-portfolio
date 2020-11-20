@@ -46,3 +46,12 @@ export interface ProjectsProps {
     tech: string[];
   }[];
 }
+
+
+// Contact
+export interface ContactState {
+  loading: boolean;
+  messageSent: boolean;
+  errors: string[];
+  messages: string[];
+}
