@@ -1,0 +1,45 @@
+.input-container {
+  label {
+    span {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 16px;
+      text-transform: capitalize;
+      color: $port_black;
+    }
+
+    .input {
+      padding: 5px 20px;
+      border: 1px solid $port_grey--variant-2;
+      border-radius: 5px;
+      box-shadow: none;
+      font-size: 16px;
+      color: $port_black;
+      transition: transform 200ms, box-shadow 200ms;
+
+      &::placeholder {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: $port_grey--variant-2;
+      }
+
+      &:focus {
+        transform: scale(1.01);
+        box-shadow: -1px -1px 4px $port_light_white,
+          2px 2px 4px $port_black;
+      }
+
+      @include screenbreak($medium) {
+        label {
+          span { font-size: 18px; }
+
+          .input, .input::placeholder { font-size: 18px; }
+        }
+      }
+    }
+  }
+
+  textarea {
+    @extend .input;
+  }
+}

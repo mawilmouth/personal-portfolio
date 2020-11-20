@@ -1,0 +1,118 @@
+.homepage-contact-container {
+  background-color: $port_grey;
+
+  .wrapper {
+    @include flex-align(column, center, center);
+    transform: translateY(-20px);
+    margin: 0px 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $port_white;
+    
+    .mail-icon {
+      width: 70px;
+      height: 70px;
+      margin: 20px 0px;
+
+      path { fill: $port_black; }
+    }
+    
+    .contact-heading, .contact-description {
+      flex-grow: 1;
+    }
+
+    .contact-heading {
+      margin-bottom: 20px;
+      font-size: 26px;
+      text-transform: capitalize;
+      color: $port_black;
+    }
+    
+    .contact-description {
+      max-width: 500px;
+      padding: 0px 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      color: $port_black;
+    }
+
+    @include screenbreak($medium) {
+      .mail-icon {
+        width: 70px;
+        height: 70px;
+      }
+
+      .contact-heading {
+        font-size: 30px;
+      }
+
+      .contact-description {
+        font-size: 18px;
+      }
+    }
+    
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+
+      .messages-container {
+        margin-bottom: 15px;
+      }
+
+      .input-row {
+        @include flex-align(column);
+        flex-grow: 1;
+
+        @include screenbreak($medium) {
+          flex-direction: row;
+
+          &.half {
+            .field:not(:first-child) {
+              margin-left: 10px;
+            }
+          }
+
+          .field {
+            align-self: initial;
+          }
+        }
+
+        .field {
+          margin: 0px;
+          align-self: stretch;
+
+          .input-container .input {
+            margin-bottom: 15px;
+          }
+        }
+        
+        .firstname {
+          flex-grow: 1;
+        }
+
+        .lastname {
+          flex-grow: 1;
+        }
+
+        .email {
+          flex-grow: 1;
+        }
+
+        .message {
+          flex-grow: 1;
+          max-width: 100%;
+          
+          label .textarea {
+            max-height: 400px;
+          }
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        margin: 0px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  }

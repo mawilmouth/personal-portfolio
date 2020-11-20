@@ -6,6 +6,7 @@ import Passions from '../components/homepage/Passions';
 import HistoryCard from '../components/homepage/History';
 import Projects from '../components/homepage/Projects';
 import Resume from '../components/homepage/Resume';
+import Contact from '../components/homepage/Contact';
 
 import { headerData } from '../staticData/Header';
 import { aboutData } from '../staticData/About';
@@ -29,6 +30,7 @@ const Homepage: React.FC = () => {
         <HistoryCard />
         <Projects projects={projectsData} />
         <Resume />
+        <Contact />
       </div>
     </BasicLayout>
   )

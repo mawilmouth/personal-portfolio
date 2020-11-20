@@ -1,0 +1,44 @@
+.messages-container {
+  @include flex-align();
+  flex-wrap: wrap;
+  padding-top: 15px;
+  border: 1px solid $port_grey;
+  border-radius: 15px;
+
+  &.error {
+    border-color: $error;
+
+    .message {
+      color: $error;
+    }
+  }
+
+  &.warning {
+    border-color: $warning;
+
+    .message {
+      color: $warning;
+    }
+  }
+
+  &.success {
+    border-color: $success;
+
+    .message {
+      color: $success;
+    }
+  }
+
+  .message {
+    margin: 0px 15px 15px;
+    @include flex-align(row, flex-start, center);
+
+    .icon {
+      margin-right: 5px;
+    }
+
+    span {
+      font-size: 16px;
+    }
+  }
+}

@@ -128,6 +128,64 @@ export const BookIcon: React.FC<IconProps> = (props) => {
   );
 };
 
+export const MailIcon: React.FC<IconProps> = (props) => {
+  return (
+    <svg
+      className={props.className}
+      stroke="currentColor"
+      fill="currentColor"
+      strokeWidth="0"
+      role="img"
+      viewBox="0 0 24 24"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.564 2.703l3.45 3.734-2.434 4.798 5.14-.921 2.34 5.646L24 2.926 5.564 2.703zm-.636 8.088l.957-.787-1.234.39-.126-.18.51-.495-.669.27C1.813 10.979 0 13.455 0 16.35c0 1.951.822 3.705 2.133 4.947-.563-.99-.885-2.134-.885-3.355 0-2.865 1.809-5.415 4.315-6.42l.315-.766-.75.331-.211-.285.011-.011zm4.364-1.97L10.89 6l9.398-2.201L9.292 8.821z"
+      />
+    </svg>
+  );
+};
+
+export const ErrorIcon: React.FC<IconProps> = (props) => {
+  return (
+    <svg
+      className={props.className}
+      stroke="currentColor"
+      fill="currentColor"
+      strokeWidth="0"
+      version="1.1"
+      viewBox="0 0 16 16"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M8 1.45l6.705 13.363h-13.409l6.705-13.363zM8 0c-0.345 0-0.69 0.233-0.951 0.698l-6.829 13.611c-0.523 0.93-0.078 1.691 0.989 1.691h13.583c1.067 0 1.512-0.761 0.989-1.691h0l-6.829-13.611c-0.262-0.465-0.606-0.698-0.951-0.698v0z" />
+      <path d="M9 13c0 0.552-0.448 1-1 1s-1-0.448-1-1c0-0.552 0.448-1 1-1s1 0.448 1 1z" />
+      <path d="M8 11c-0.552 0-1-0.448-1-1v-3c0-0.552 0.448-1 1-1s1 0.448 1 1v3c0 0.552-0.448 1-1 1z" />
+    </svg>
+  );
+};
+
+export const CheckIcon: React.FC<IconProps> = (props) => {
+  return (
+    <svg
+      className={props.className}
+      stroke="currentColor"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height="1em" width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+};
+
 export const HTMLIcon: React.FC<IconProps> = (props) => {
   return (
     <svg
