@@ -4,6 +4,9 @@
 </div>
 <div>
   <h1 align="center">Personal Portfolio</h1>
+  <div align="center">
+    <img src="https://img.shields.io/github/issues/mawilmouth/WilmouthWorks" />
+  </div>
   <p align="center" style="margin-bottom: 40px;">My name is Michael Wilmouth and I welcome to version two of my personal portfolio! You can view the working version of this app at <a href="https://www.wilmouthworks.com">wilmouthworks.com</a>.</p>
 
   <h1>Usage</h1>
