@@ -10,8 +10,8 @@ export const topNavData = {
       route: '#passions'
     },
     {
-      text: 'work',
-      route: '#work'
+      text: 'projects',
+      route: '#projects'
     },
     {
       text: 'contact',

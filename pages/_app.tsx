@@ -1,3 +1,7 @@
+import { createWrapper } from 'next-redux-wrapper';
+import store from '../state/store';
+import { ApplicationState } from '../types/state/StoreTypes';
+
 // Gobal styles
 import '../styles/App.scss';
 
@@ -8,4 +12,8 @@ const Portfolio = ({ Component, pageProps }) => {
   return <Component {...pageProps} />
 }
 
-export default Portfolio;
+const makeStore = store => store;
+
+export const wrapper = createWrapper<ApplicationState>(makeStore(store), {});
+
+export default wrapper.withRedux(Portfolio);;

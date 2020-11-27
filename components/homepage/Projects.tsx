@@ -1,8 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
+import { connect } from 'react-redux';
 import { ProjectsProps } from '../../types/pages/HomepageTypes';
+import { addNavSectionListeners, removeNavSectionListeners } from '../../helpers/layout/navHelpers';
 
 const Projects: React.FC<ProjectsProps> = (props) => {
+  const sectionId: string = 'projects';
+
+  React.useEffect(() => {
+    addNavSectionListeners(sectionId, props.dispatch);
+
+    return removeNavSectionListeners(sectionId, props.dispatch);
+  });
 
   function renderProjects(): React.ReactNode[] {
     return props.projects.map((item, index) => {
@@ -43,7 +52,7 @@ const Projects: React.FC<ProjectsProps> = (props) => {
   }
 
   return (
-    <div id="projects" className="homepage-projects-container">
+    <div id={sectionId} className="homepage-projects-container">
       <div className="row projects-row">
         {renderProjects()}
       </div>
@@ -51,4 +60,4 @@ const Projects: React.FC<ProjectsProps> = (props) => {
   );
 }
 
-export default Projects;
+export default connect()(Projects);

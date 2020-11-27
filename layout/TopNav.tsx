@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { TopNavProps, NavLinkProps } from '../types/layout/LayoutTypes';
 import { slide as Menu } from 'react-burger-menu'
+import { ApplicationState } from '../types/state/StoreTypes';
+import { connect } from 'react-redux';
 
 const TopNav: React.FC<TopNavProps> = (props) => {
   const [navActive, setNavActive] = React.useState(false);
@@ -28,6 +30,7 @@ const TopNav: React.FC<TopNavProps> = (props) => {
         route={link.route}
         external={link.external}
         key={`nav-link-${index}`}
+        active={props.activeSection}
       />
     ));
   }
@@ -89,12 +92,14 @@ const TopNav: React.FC<TopNavProps> = (props) => {
 }
 
 export const NavLink: React.FC<NavLinkProps> = (props) => {
-  let link: React.ReactNode = <a className="link" href={props.route} target="_blank">{props.text}</a>;
+  const { active, route, text, external } = props;
+  const linkClass: string = `#${active}` === route ? ' active' : '';
+  let link: React.ReactNode = <a className="link" href={route} target="_blank">{text}</a>;
 
-  if (!props.external) {
+  if (!external) {
     link = (
-      <Link href={props.route}>
-        <a className="link">{props.text}</a>
+      <Link href={route}>
+        <a className={`link${linkClass}`}>{text}</a>
       </Link>
     );
   }
@@ -104,4 +109,8 @@ export const NavLink: React.FC<NavLinkProps> = (props) => {
   );
 }
 
-export default TopNav;
+const mapStateToProps = (state: ApplicationState) => ({
+  activeSection: state.nav.active
+});
+
+export default connect(mapStateToProps)(TopNav);

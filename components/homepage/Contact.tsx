@@ -1,14 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import axios, { AxiosResponse } from 'axios';
 import { MailIcon } from '../../modules/Icons';
 import { TextInput, TextAreaInput } from '../../modules/Inputs';
 import { BasicButton } from '../../modules/Buttons';
 import { validateContactEntries } from '../../helpers/components/homepage/HomepageHelpers';
 import { ContactFormEntries } from '../../types/helpers/components/homepage/HomepageHelpersTypes';
-import { ContactState } from '../../types/pages/HomepageTypes';
+import { ContactProps, ContactState } from '../../types/pages/HomepageTypes';
 import Messages from '../../modules/Messages';
+import { addNavSectionListeners, removeNavSectionListeners } from '../../helpers/layout/navHelpers';
 
-class Contact extends React.Component<{}, ContactState> {
+class Contact extends React.Component<ContactProps, ContactState> {
   constructor(props) {
     super(props);
 
@@ -22,6 +24,8 @@ class Contact extends React.Component<{}, ContactState> {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setLoading = this.setLoading.bind(this);
   }
+
+  private sectionId: string = 'contact';
 
   renderErrors = (): React.ReactNode => <Messages messages={this.state.errors} error />
 
@@ -66,12 +70,20 @@ class Contact extends React.Component<{}, ContactState> {
     this.setState({ loading })
   }
 
+  componentDidMount() {
+    addNavSectionListeners(this.sectionId, this.props.dispatch);
+  }
+
+  componentWillUnmount() {
+    removeNavSectionListeners(this.sectionId, this.props.dispatch);
+  }
+
   render() {
     const { loading, messageSent } = this.state;
     const submitButtonDisabledText: string = loading ? 'sending message' : messageSent && 'message sent';
 
     return (
-      <div id="contact" className="homepage-contact-container">
+      <div id={this.sectionId} className="homepage-contact-container">
         <div className="row">
           <div className="columns wrapper">
             <MailIcon className="mail-icon" />
@@ -113,4 +125,4 @@ class Contact extends React.Component<{}, ContactState> {
   }
 }
 
-export default Contact;
+export default connect()(Contact);

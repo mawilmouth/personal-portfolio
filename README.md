@@ -15,6 +15,7 @@
   <ul>
     <li>Next.js</li>
     <li>React</li>
+    <li>Redux</li>
     <li>Typescript</li>
     <li>SCSS</li>
     <li>Foundation.CSS</li>
