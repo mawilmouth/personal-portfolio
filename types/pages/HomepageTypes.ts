@@ -1,3 +1,5 @@
+import { Dispatch } from "redux";
+
 // Header
 export interface HeroHeaderProps { 
   heading: string;
@@ -10,6 +12,7 @@ export interface HeroHeaderProps {
 export interface AboutProps {
   portrateImg: string;
   bio: string;
+  dispatch: Dispatch;
 }
 
 export interface BioProps {
@@ -26,6 +29,7 @@ export interface PassionsProps {
     title: string;
     description: string;
   }[];
+  dispatch: Dispatch;
 }
 
 
@@ -45,10 +49,15 @@ export interface ProjectsProps {
     description: string;
     tech: string[];
   }[];
+  dispatch: Dispatch;
 }
 
 
 // Contact
+export interface ContactProps {
+  dispatch: Dispatch;
+}
+
 export interface ContactState {
   loading: boolean;
   messageSent: boolean;

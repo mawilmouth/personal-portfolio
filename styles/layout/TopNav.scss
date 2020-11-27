@@ -103,6 +103,14 @@
         &:hover {
           background-color: $port_transparent_white;
         }
+
+        &.active {
+          background-color: $port_transparent_white;
+
+          &:hover {
+            background-color: $port_transparent_white--variant-1;
+          }
+        }
       }
     }
   }

@@ -1,3 +1,6 @@
+import { NavState } from "../state/reducers/NavReducerTypes";
+import { Dispatch } from "redux";
+
 // Basic Layout
 export interface BasicLayoutProps {
   clearNav: boolean;
@@ -9,9 +12,12 @@ export interface BasicLayoutProps {
 export interface TopNavProps {
   clearNav: boolean;
   links: NavLinkProps[];
+  activeSection: string;
+  dispatch: Dispatch;
 }
 
 export interface NavLinkProps {
+  active: string;
   route: string;
   text: string;
   external?: boolean;

@@ -1,3 +1,3 @@
-export function newState<T>(oldState: T, newState: T): T {
-  return {...oldState, ...newState};
+export function newState<T>(currentState: T, newState: any): T {
+  return {...currentState, ...newState};
 };
