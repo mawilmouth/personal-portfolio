@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import { ChevronIcon } from '../../modules/Icons';
 import { HeroHeaderProps } from '../../types/pages/HomepageTypes';
-import Link from 'next/link';
 
 const HeroHeader: React.FC<HeroHeaderProps> = (props) => {
   return (
@@ -14,7 +14,7 @@ const HeroHeader: React.FC<HeroHeaderProps> = (props) => {
       <div className="down-icon-container">
         <Link href={`#${props.jumpTo}`}>
           <a>
-            <ChevronIcon className="icon" />
+            <ChevronIcon className="icon" /> 
           </a>
         </Link>
       </div>

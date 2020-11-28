@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { TopNavProps, NavLinkProps } from '../types/layout/LayoutTypes';
+import { connect } from 'react-redux';
 import { slide as Menu } from 'react-burger-menu'
 import { ApplicationState } from '../types/state/StoreTypes';
-import { connect } from 'react-redux';
+import { setNavActiveLink } from '../state/actions/navActions';
+import { TopNavProps, NavLinkProps } from '../types/layout/LayoutTypes';
 
 const TopNav: React.FC<TopNavProps> = (props) => {
   const [navActive, setNavActive] = React.useState(false);
@@ -31,6 +32,7 @@ const TopNav: React.FC<TopNavProps> = (props) => {
         external={link.external}
         key={`nav-link-${index}`}
         active={props.activeSection}
+        dispatch={props.dispatch}
       />
     ));
   }
@@ -92,14 +94,27 @@ const TopNav: React.FC<TopNavProps> = (props) => {
 }
 
 export const NavLink: React.FC<NavLinkProps> = (props) => {
-  const { active, route, text, external } = props;
+  const { active, route, text, external, dispatch } = props;
+
+  function handleClick(e): void {
+    e.preventDefault();
+    const sectionId: string = route.replace('#', '');
+    const section: HTMLElement = document.getElementById(sectionId);
+    const topYCords: number = section.offsetTop;
+    const screenMid: number = window.innerHeight / 2 - 100;
+    window.scrollTo(0, topYCords - screenMid);
+    dispatch(setNavActiveLink(sectionId));
+  }
+
   const linkClass: string = `#${active}` === route ? ' active' : '';
-  let link: React.ReactNode = <a className="link" href={route} target="_blank">{text}</a>;
+  let link: React.ReactNode = (
+    <a className="link" href={route} target="_blank" onClick={handleClick}>{text}</a>
+  );
 
   if (!external) {
     link = (
       <Link href={route}>
-        <a className={`link${linkClass}`}>{text}</a>
+        <a className={`link${linkClass}`} onClick={handleClick}>{text}</a>
       </Link>
     );
   }
