@@ -9,6 +9,8 @@ function onScroll(elem: HTMLElement, sectionId: string, dispatch: Dispatch): voi
 
   if (elemTop > (currentMid - 100) && elemTop < (currentMid + 100)) {
     dispatch(setNavActiveLink(sectionId));
+  } else if (currentYPos <= 150) {
+    dispatch(setNavActiveLink(''));
   }
 }
 
