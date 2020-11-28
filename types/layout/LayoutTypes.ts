@@ -21,6 +21,7 @@ export interface NavLinkProps {
   route: string;
   text: string;
   external?: boolean;
+  dispatch: Dispatch;
 }
 
 

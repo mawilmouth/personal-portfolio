@@ -25,6 +25,9 @@
 // Pages
 @import './pages/Homepage';
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0px;
