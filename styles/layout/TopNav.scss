@@ -116,6 +116,12 @@
   }
 }
 
+@include screenbreak($large) {
+  .bm-overlay, .bm-menu-wrap {
+    display: none;
+  }
+}
+
 .bm-menu-wrap {
   top: 0px;
   left: -100vw !important;
@@ -133,7 +139,15 @@
   .responsive-menu {
     padding-top: 63px;
 
+    &:focus {
+      outline: none;
+    }
+
     .link-container {
+
+      &:focus {
+        outline: none;
+      }
 
       .link {
         display: block;
@@ -148,7 +162,6 @@
           background-color: $port_grey;
           color: $port_blue;
         }
-
       }
     }
   }

@@ -97,6 +97,8 @@ export const NavLink: React.FC<NavLinkProps> = (props) => {
   const { active, route, text, external, dispatch } = props;
 
   function handleClick(e): void {
+    if (external) return;
+
     e.preventDefault();
     const sectionId: string = route.replace('#', '');
     const section: HTMLElement = document.getElementById(sectionId);
