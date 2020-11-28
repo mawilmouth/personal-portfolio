@@ -21,7 +21,7 @@
 
       .bio {
         max-width: 600px;
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
         color: $port_black_font;
       }
@@ -30,7 +30,7 @@
     @include screenbreak($medium) {
       .about-heading { font-size: 40px; }
       .portrate-img { width: 200px; }
-      .bio-container .bio { font-size: 16px; }
+      .bio-container .bio { font-size: 18px; }
     }
   }
 }

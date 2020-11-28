@@ -51,7 +51,7 @@
         .description-title {
           max-width: 400px;
           margin-bottom: 15px;
-          font-size: 18px;
+          font-size: 20px;
           font-weight: bold;
           text-transform: capitalize;
           color: $port_black;
@@ -60,18 +60,18 @@
         .description {
           max-width: 400px;
           padding: 0px 15px;
-          font-size: 14px;
+          font-size: 16px;
           text-align: center;
           color: $port_black;
         }
 
         @include screenbreak($medium) {
           .description-title {
-            font-size: 20px;
+            font-size: 22px;
           }
 
           .description {
-            font-size: 16px;
+            font-size: 18px;
           }
         }
       }
