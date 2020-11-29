@@ -79,7 +79,7 @@ const Project: React.FC<ProjectProps> = (props) => {
     const modalOptions = {
       src: project.embed.url,
       allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
-      allowfullscreen: true
+      allowFullScreen: true
     };
 
     return (
@@ -87,7 +87,7 @@ const Project: React.FC<ProjectProps> = (props) => {
         <div className="modal-container">
           <div className="modal-content-wrapper">
             <div className="video-wrapper">
-              <iframe {...modalOptions}/>
+              <iframe {...modalOptions} />
             </div>
           </div>
           <div className="modal-close" onClick={closeModal}>
