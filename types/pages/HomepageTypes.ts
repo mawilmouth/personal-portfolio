@@ -39,17 +39,31 @@ export interface HistoryCardProps {}
 
 // Projects
 export interface ProjectsProps {
-  projects: {
-    name: string;
-    img: string;
-    location: {
-      url: string;
-      external?: boolean;
-    };
-    description: string;
-    tech: string[];
-  }[];
+  projects: ProjectType[];
   dispatch: Dispatch;
+}
+
+export interface ProjectProps {
+  project: ProjectType;
+  index: number;
+}
+
+export interface ProjectType {
+  name: string;
+  img: string;
+  description: string;
+  tech: string[];
+  location?: ProjectLocationType;
+  embed?: ProjectEmbedType;
+}
+
+export interface ProjectLocationType {
+  url: string;
+  external?: boolean;
+}
+
+export interface ProjectEmbedType {
+  url: string;
 }
 
 

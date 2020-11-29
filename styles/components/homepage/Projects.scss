@@ -47,11 +47,49 @@
 
         &:hover {
           img { transform: scale(1.1); }
+
+          .wrapper .play-icon-container {
+            background-color: $port_black;
+            
+            .play-icon {
+              width: 30px;
+              height: 30px;
+
+              path {
+                fill: $port_white;
+              }
+            }
+          }
         }
 
         img {
           width: 600px;
           transition: all 300ms;
+        }
+
+        .wrapper {
+          position: relative;
+          cursor: pointer;
+
+          .play-icon-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: background-color 200ms;
+            @include flex-align(column, center, center);
+            padding: 15px;
+            border-radius: 100%;
+            background-color: $port_white;
+
+            .play-icon {
+              width: 25px;
+              height: 25px;
+              transition: all 200ms;
+
+              path { fill: $port_black; }
+            }
+          }
         }
       }
 
@@ -121,6 +159,83 @@
             @include flex-align();
             margin-right: 70px;
           }
+        }
+      }
+    }
+  }
+}
+
+.ReactModal__Overlay {
+  @include flex-align(column, center, center);
+  background-color: rgba(0, 0, 0, 0.75) !important;
+
+  .project-modal {
+    &:focus {
+      outline: none;
+    }
+    
+    .modal-container {
+      position: relative;
+      width: 90vw;
+      max-width: 800px;
+
+      @include screenbreak($large) { width: 75vw; }
+
+      .modal-content-wrapper {
+        padding: 10px;
+        background-color: $port_white;
+        border-radius: 10px;
+        width: 100%;
+
+        @include screenbreak($large) { padding: 20px; }
+        
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+          height: 0px;
+          padding-bottom: 56.25%;
+
+          iframe {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+          }
+        }
+      }
+
+      .modal-close {
+        @include flex-align(column, center, center);
+        position: absolute;
+        top: -50px;
+        right: -10px;
+        padding: 10px;
+        border-radius: 100%;
+        background-color: rgba(41, 189, 203, 0.8);
+        box-shadow: 0px 0px 10px rgba(41, 189, 203, 0.5);
+        transition: background-color 300ms;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(41, 189, 203, 0.9);
+        }
+
+        @include screenbreak($medium) {
+          top: -20px;
+          right: -20px;
+        }
+
+        @include screenbreak($large) {
+          top: -40px;
+          right: -40px;
+        }
+
+        .close-icon {
+          width: 20px;
+          height: 20px;
         }
       }
     }
