@@ -15,7 +15,7 @@ import { projectsData } from '../staticData/Projects';
 
 const Homepage: React.FC = () => {
   return (
-    <BasicLayout clearNav headTitle="Home">
+    <BasicLayout clearNav>
       <div className="homepage-container">
         <HeroHeader
           heading={headerData.heading} 
