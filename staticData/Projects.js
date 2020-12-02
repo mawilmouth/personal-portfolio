@@ -37,7 +37,7 @@ export const projectsData = [
     img: '/images/projects/spina-slider.png',
     tech: ['Haml', 'ERB', 'SASS', 'Javascript', 'Jquery', 'Ruby on Rails', 'TwentyTwenty.js'],
     embed: {
-      url: 'https://www.youtube.com/embed/YnaVexltZtk',
+      url: 'https://www.youtube.com/embed/YnaVexltZtk?autoplay=1',
     }
   }
 ];
