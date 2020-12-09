@@ -50,15 +50,13 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
     if (errors.length) return this.setState({ errors, messages, loading: false });
 
+    const defaultEmailError: string = 'There was an error sending your email. Please try again later.';
+
     try {
-      const res: AxiosResponse = await axios.post('/api/contact', { data: entries });
-      messages = messages.concat(res.data.messages);
+      const { data }: AxiosResponse = await axios.post('/api/contact', { data: entries });
+      messages = messages.concat(data.messages);
     } catch (err) {
-      if (err.response) {
-        errors = err.response.data.messages;
-      } else {
-        errors = ['There was an error sending your email. Please try again later.'];
-      }
+      errors = [err.response?.data] || err.response?.data?.messages || [defaultEmailError];
     }
 
     const messageSent: boolean = !errors.length;
