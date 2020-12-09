@@ -1,9 +1,7 @@
-import { ContactFormEntries } from "../../types/helpers/components/homepage/HomepageHelpersTypes";
+exports.validateContactEntries = (entries) => {
+  let messages = [];
 
-export function validateContactEntries(entries: ContactFormEntries): string[] {
-  let messages: string[] = [];
-
-  const isEmail: boolean = validEmail(entries.email);
+  const isEmail = validEmail(entries.email);
 
   if (!entries.firstName) messages.push('First name is not valid');
   if (!entries.lastName) messages.push('Last name is not valid');
@@ -13,7 +11,7 @@ export function validateContactEntries(entries: ContactFormEntries): string[] {
   return messages;
 }
 
-function validEmail(email: string): boolean {
+function validEmail(email) {
   const re = /\S+@\S+\.\S+/;
   return email && re.test(email);
 }

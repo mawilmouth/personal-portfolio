@@ -1,4 +1,4 @@
-export const ENV = {
+exports.ENV = {
   mailer: {
     email: process.env.MAILER_EMAIL,
     password: process.env.MAILER_PASSWORD,

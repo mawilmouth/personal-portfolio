@@ -7,24 +7,24 @@ const transporter = nodemailer.createTransport({
   secure: false,
   requireTLS: true,
   auth: {
-      user: ENV.mailer.email,
-      pass: ENV.mailer.password
+    user: ENV.mailer.email,
+    pass: ENV.mailer.password
   }
 });
 
-export const send = ({ email, name, text }) => {
-  const from = name && email ? `${name} <${email}>` : `${name || email}`
+const send = ({ email, name, text }) => {
+  const from = name && email ? `${name} <${email}>` : `${name || email}`;
   const message = {
     from,
     to: ENV.mailer.receiver,
     subject: `Wilmouth Works - Contact From: ${from}`,
     text,
     replyTo: from
-  }
+  };
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) =>
-      error ? reject(error) : resolve(info)
-    )
-  })
+    transporter.sendMail(message, (error, info) => error ? reject(error) : resolve(info));
+  });
 }
+
+exports.send = send;
