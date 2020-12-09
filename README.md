@@ -14,6 +14,8 @@
   <h1>Tech Used</h1>
   <ul>
     <li>Next.js</li>
+    <li>Node.js</li>
+    <li>Express.js</li>
     <li>React</li>
     <li>Redux</li>
     <li>Typescript</li>
