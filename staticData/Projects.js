@@ -29,7 +29,7 @@ export const projectsData = [
     }
   },
   {
-    name: 'Spina Sider',
+    name: 'Spina Slider',
     description: `This is an extension to Spina CMS which is a CMS for Rails 6
       applications. This gem can be installed on RubyGems and provides an additional 
       rich text editor feature. This is used to insert a before/after image slider in
