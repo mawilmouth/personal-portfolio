@@ -26,7 +26,7 @@ nextApp.prepare().then(() => {
 
   app.use('/api/contact', require('./api/contact'));
 
-  app.listen(3000, (err) => {
+  app.listen(process.env.PORT || 3000, '0.0.0.0', (err) => {
     if (err) throw err;
     console.log('> Ready on http://localhost:3000');
   });
