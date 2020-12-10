@@ -7,7 +7,7 @@
   <div align="center">
     <img src="https://img.shields.io/github/issues/mawilmouth/WilmouthWorks" />
   </div>
-  <p align="center" style="margin-bottom: 40px;">My name is Michael Wilmouth and I welcome to version two of my personal portfolio! You can view the working version of this app at <a href="https://www.wilmouthworks.com">wilmouthworks.com</a>.</p>
+  <p align="center" style="margin-bottom: 40px;">My name is Michael Wilmouth and I welcome to version two of my personal portfolio! You can view the working version of this app at <a href="https://wilmouthworks.herokuapp.com/">wilmouthworks.com</a>.</p>
 
   <h1>Usage</h1>
   <p>You may resuse this code as your own, all that I ask is for you to give credit where it's due!</p>

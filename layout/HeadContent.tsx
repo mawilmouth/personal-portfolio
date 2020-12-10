@@ -19,7 +19,7 @@ const HeadContent: React.FC<HeadContentProps> = (props) => {
 
       <meta name="og:title" content={seoTitle} />
       <meta name="og:description" content={seoDesc} />
-      <meta name="og:url" content="https://www.wilmouthworks.com" />
+      <meta name="og:url" content="https://wilmouthworks.herokuapp.com" />
       <meta name="og:type" content="website" />
       <meta name="og:image" content="/images/ww-logo-black.png" />
 
