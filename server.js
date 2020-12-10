@@ -7,6 +7,9 @@ const apiLimiter = rateLimit({
   max: 5 // limit each IP to 5 requests per windowMs
 });
 
+const port = process.env.PORT || 3000;
+const host = '0.0.0.0';
+
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
@@ -26,9 +29,9 @@ nextApp.prepare().then(() => {
 
   app.use('/api/contact', require('./api/contact'));
 
-  app.listen(process.env.PORT || 3000, '0.0.0.0', (err) => {
+  app.listen(port, host, (err) => {
     if (err) throw err;
-    console.log('> Ready on http://localhost:3000');
+    console.log(`> Ready on ${port}`);
   });
 }).catch((ex) => {
   console.error(ex.stack);
