@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { send } = require('../utils/mailer');
 const { validateContactEntries } = require('../helpers/api/ContactHelpers');
+const Sentry = require('@sentry/node');
 
 router.post('/', async (req, res) => {
   const { firstName, lastName, email, message } = req.body.data;
@@ -17,9 +18,10 @@ router.post('/', async (req, res) => {
     try {
       await send({ name, email, text: message });
       messages = [`Your message has been sent!`];
-    } catch {
+    } catch (ex) {
       status = 500;
       messages = ['There was an error sending your message. Please try again later.'];
+      Sentry.captureException(ex);
     }
   }
 
