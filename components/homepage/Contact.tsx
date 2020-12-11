@@ -47,6 +47,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
     let errors: string [] = validateContactEntries(entries);
     let messages: string [] = [];
+    let messageSent: boolean = false;
 
     if (errors.length) return this.setState({ errors, messages, loading: false });
 
@@ -55,11 +56,10 @@ class Contact extends React.Component<ContactProps, ContactState> {
     try {
       const { data }: AxiosResponse = await axios.post('/api/contact', { data: entries });
       messages = messages.concat(data.messages);
+      messageSent = true;
     } catch (err) {
-      errors = [err.response?.data] || err.response?.data?.messages || [defaultEmailError];
+      errors = err.response?.data?.messages || [defaultEmailError];
     }
-
-    const messageSent: boolean = !errors.length;
 
     this.setState({ errors, messages, messageSent, loading: false });
   }
