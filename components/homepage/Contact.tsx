@@ -9,6 +9,7 @@ import { ContactFormEntries } from '../../types/helpers/components/homepage/Home
 import { ContactProps, ContactState } from '../../types/pages/HomepageTypes';
 import Messages from '../../modules/Messages';
 import { addNavSectionListeners, removeNavSectionListeners } from '../../helpers/layout/navHelpers';
+import logger from '../../lib/ErrorReporting';
 
 class Contact extends React.Component<ContactProps, ContactState> {
   constructor(props) {
@@ -58,6 +59,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
       messages = messages.concat(data.messages);
       messageSent = true;
     } catch (err) {
+      logger.error(err);
       errors = err.response?.data?.messages || [defaultEmailError];
     }
 
