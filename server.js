@@ -39,13 +39,13 @@ nextApp.prepare().then(() => {
   // Routes
   app.get('*', (req, res) => handle(req, res));
 
-  app.use('/api/contact', require('./api/contact'));
+  app.use('/api/contact', require('./server/api/contact'));
 
   app.use(Sentry.Handlers.errorHandler());
 
   app.listen(port, host, (err) => {
     if (err) throw err;
-    console.log(`> Ready on ${port}`);
+    console.log(`>-- Ready on ${port}`);
   });
 }).catch((ex) => {
   Sentry.captureException(ex);

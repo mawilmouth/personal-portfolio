@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const { ENV } = require('../constants/environments');
+const { ENV } = require('../../constants/environments');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',

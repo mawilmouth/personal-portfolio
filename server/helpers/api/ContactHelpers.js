@@ -1,3 +1,8 @@
+function validEmail(email) {
+  const re = /\S+@\S+\.\S+/;
+  return email && re.test(email);
+}
+
 exports.validateContactEntries = (entries) => {
   let messages = [];
 
@@ -9,9 +14,4 @@ exports.validateContactEntries = (entries) => {
   if (!entries.message) messages.push('Message is not valid');
 
   return messages;
-}
-
-function validEmail(email) {
-  const re = /\S+@\S+\.\S+/;
-  return email && re.test(email);
 }
