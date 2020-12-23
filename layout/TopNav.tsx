@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { slide as Menu } from 'react-burger-menu'
 import { ApplicationState } from '../types/state/StoreTypes';
@@ -95,6 +96,7 @@ const TopNav: React.FC<TopNavProps> = (props) => {
 
 export const NavLink: React.FC<NavLinkProps> = (props) => {
   const { active, route, text, external, dispatch } = props;
+  const router = useRouter();
 
   function handleClick(e): void {
     if (external) return;
@@ -102,10 +104,16 @@ export const NavLink: React.FC<NavLinkProps> = (props) => {
     e.preventDefault();
     const sectionId: string = route.replace('#', '');
     const section: HTMLElement = document.getElementById(sectionId);
+    dispatch(setNavActiveLink(sectionId));
+
+    if (!section) {
+      router.push(`/${route}`);
+      return;
+    }
+
     const topYCords: number = section.offsetTop;
     const screenMid: number = window.innerHeight / 2 - 100;
     window.scrollTo(0, topYCords - screenMid);
-    dispatch(setNavActiveLink(sectionId));
   }
 
   const linkClass: string = `#${active}` === route ? ' active' : '';
