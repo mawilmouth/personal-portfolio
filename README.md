@@ -21,6 +21,7 @@
     <li>Typescript</li>
     <li>SCSS</li>
     <li>Foundation.CSS</li>
+    <li>Sentry Reporting</li>
   </ul>
 
   <h1>The Why</h1>
@@ -38,9 +39,15 @@
   <p>In order to get you email client setup, you must create a <code>.env.development.local</code> and set a few environment variables. I also chose to use Gmail as my SMTP host, so you will need a valid gmail account with an app password that you can use for this app.</p>
   <h4>Environment Variables</h4>
   <ul>
+    <li>APP_ENV -> Current ENV of app</li>
+    <li>APP_NAME -> Name of the App</li>
     <li>MAILER_EMAIL -> Email used as the sender</li>
     <li>MAILER_PASSWORD -> Sender email password</li>
     <li>MAILER_RECEIVER -> Email to receive the incomming emails</li>
     <li>MAILER_PORT -> Port for Nodemailer to use</li>
+    <li>SENTRY_DSN -> Sentry organization DSN</li>
+    <li>SENTRY_ORG -> Sentry organization name</li>
+    <li>SENTRY_PROJECT -> Sentry project name</li>
+    <li>SENTRY_AUTH_TOKEN -> Sentry project integration token</li>
   </ul>
 </div>
