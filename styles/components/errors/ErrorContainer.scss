@@ -1,0 +1,40 @@
+.error-container {
+  height: 100vh;
+  @include flex-align(column, center, center);
+
+  .code, .message, .link-to-home {
+    line-height: 1;
+    color: $port_black;
+  }
+
+  .code {
+    margin-bottom: 10px;
+    font-size: 100px;
+    font-weight: bold;
+  }
+
+  .message {
+    margin-bottom: 10px;
+    padding: 0px 15px;
+    max-width: 500px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .link-to-home {
+    @include flex-align(row, center, center);
+    font-size: 18px;
+    border-bottom: 1px solid $port_black;
+    transition: color 300ms, border-bottom-color 300ms;
+
+    &:hover {
+      color: $port_blue--variant-1;
+      border-bottom-color: $port_blue--variant-1;
+    }
+
+    .back-icon {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
