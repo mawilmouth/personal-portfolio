@@ -1,8 +1,11 @@
 const express = require('express');
 const next = require('next');
-const rateLimit = require("express-rate-limit");
+const rateLimit = require('express-rate-limit');
+require('dotenv').config();
 const Sentry = require('@sentry/node');
-const Tracing = require("@sentry/tracing");
+const Tracing = require('@sentry/tracing');
+const db = require('./server/connection');
+const colors = require('./server/helpers/logging/colors');
 
 const apiLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
@@ -43,12 +46,19 @@ nextApp.prepare().then(() => {
 
   app.use(Sentry.Handlers.errorHandler());
 
-  app.listen(port, host, (err) => {
-    if (err) throw err;
-    console.log(`>-- Ready on ${port}`);
+  app.listen(port, host, (ex) => {
+    if (ex) throw ex;
+    console.log(colors.fg.Magenta, `[app]: Ready on ${port}`);
+  });
+
+  db.authenticate().then(() => {
+    console.log(colors.fg.Magenta, '[app]: DB connection established');
+  }).catch((ex) => {
+    console.log(colors.fg.Red, '[app]: DB connection falied', ex);
+    throw ex;
   });
 }).catch((ex) => {
   Sentry.captureException(ex);
-  console.error(ex.stack);
+  console.error(colors.fg.Red, ex.stack);
   process.exit(1);
 });
