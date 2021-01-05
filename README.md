@@ -16,6 +16,8 @@
     <li>Next.js</li>
     <li>Node.js</li>
     <li>Express.js</li>
+    <li>Postgres</li>
+    <li>Sequelize ORM</li>
     <li>React</li>
     <li>Redux</li>
     <li>Typescript</li>
@@ -32,6 +34,12 @@
   <pre>$ git clone https://github.com/mawilmouth/WilmouthWorks.git</pre>
   <h4>Install dependencies</h4>
   <pre>$ yarn install</pre>
+  <h4>Create DB</h4>
+  <pre>$ yarn sequelize db:create</pre>
+  <h4>Run Migrations</h4>
+  <pre>$ yarn db-cli db:migrate</pre>
+  <h4>Seed DB with mock data</h4>
+  <pre>$ yarn db-cli db:seed:all</pre>
   <h4>Run server</h4>
   <pre>$ yarn dev</pre>
 
@@ -49,5 +57,9 @@
     <li>SENTRY_ORG -> Sentry organization name</li>
     <li>SENTRY_PROJECT -> Sentry project name</li>
     <li>SENTRY_AUTH_TOKEN -> Sentry project integration token</li>
+    <li>DB_NAME -> Name of Postgres DB</li>
+    <li>DB_HOST -> Host of Postgres DB</li>
+    <li>DB_USERNAME -> Username to Postgres DB</li>
+    <li>DB_PASSWORD -> Password to Postgres DB</li>
   </ul>
 </div>
