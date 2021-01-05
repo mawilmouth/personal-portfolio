@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nodemon server.js",
     "build": "next build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "db-cli": "yarn sequelize-cli"
   },
   "dependencies": {
     "@sentry/node": "^5.29.0",
@@ -14,12 +15,14 @@
     "animate.css": "^4.1.1",
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.3",
     "foundation-sites": "^6.6.3",
     "next": "9.5.5",
     "next-redux-wrapper": "^6.0.2",
     "nodemailer": "^6.4.16",
+    "pg": "^8.5.1",
     "raven-js": "^3.27.2",
     "react": "16.13.1",
     "react-burger-menu": "^2.9.0",
@@ -29,12 +32,14 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "sass": "^1.27.0"
+    "sass": "^1.27.0",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.52",
     "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0",
     "typescript": "^4.0.3"
   }
 }
