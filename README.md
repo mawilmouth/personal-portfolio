@@ -18,6 +18,7 @@
     <li>Express.js</li>
     <li>Postgres</li>
     <li>Sequelize ORM</li>
+    <li>Sequelize CLI</li>
     <li>React</li>
     <li>Redux</li>
     <li>Typescript</li>
@@ -35,7 +36,7 @@
   <h4>Install dependencies</h4>
   <pre>$ yarn install</pre>
   <h4>Create DB</h4>
-  <pre>$ yarn sequelize db:create</pre>
+  <pre>$ yarn db-cli db:create</pre>
   <h4>Run Migrations</h4>
   <pre>$ yarn db-cli db:migrate</pre>
   <h4>Seed DB with mock data</h4>
