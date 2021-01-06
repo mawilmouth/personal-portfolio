@@ -8,12 +8,22 @@ const {
   DB_PASSWORD
 } = process.env;
 
+const isProduction = APP_ENV === 'production';
+let dialectOptions = {};
+
+if (isProduction) {
+  Object.assign(dialectOptions, {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  });
+}
+
 const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
   host,
   dialect: 'postgres',
-  dialectOptions: {
-    ssl: APP_ENV === 'production'
-  }
+  dialectOptions
 });
 
 module.exports = sequelize;
