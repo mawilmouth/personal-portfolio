@@ -22,10 +22,6 @@ module.exports = {
     dialect: 'postgres'
   },
   production: {
-    username,
-    password,
-    database,
-    host,
     dialect: 'postgres',
     dialectOptions: {
       ssl: {

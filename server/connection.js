@@ -5,11 +5,12 @@ const {
   DB_NAME,
   DB_HOST: host,
   DB_USERNAME,
-  DB_PASSWORD
+  DB_PASSWORD,
+  DATABASE_URL
 } = process.env;
 
 const isProduction = APP_ENV === 'production';
-let dialectOptions = {};
+let dialectOptions = {}, sequelize;
 
 if (isProduction) {
   Object.assign(dialectOptions, {
@@ -18,12 +19,16 @@ if (isProduction) {
       rejectUnauthorized: false
     }
   });
+  sequelize = new Sequelize(DATABASE_URL, {
+    dialect: 'postgres',
+    dialectOptions
+  });
+} else {
+  sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+    host,
+    dialect: 'postgres',
+    dialectOptions
+  });
 }
-
-const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
-  host,
-  dialect: 'postgres',
-  dialectOptions
-});
 
 module.exports = sequelize;
