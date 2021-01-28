@@ -1,39 +1,49 @@
 'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, STRING, DATE } = Sequelize;
-    await queryInterface.createTable('Blog_Authors', {
+
+    await queryInterface.createTable('blogs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: INTEGER
       },
-      blog_id: {
+      ownerId: {
+        type: INTEGER,
         allowNull: false,
-        type: INTEGER
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
-      first_name: {
-        allowNull: false,
+      name: {
+        type: STRING,
+        allowNull: false
+      },
+      apiKey: {
         type: STRING
       },
-      last_name: {
-        allowNull: false,
-        type: STRING
-      },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: DATE
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: DATE
       }
     });
+
+    await queryInterface.addIndex('blogs', {
+      fields: ['id']
+    });
+
+    await queryInterface.addIndex('blogs', {
+      fields: ['apiKey']
+    });
   },
-  
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Blog_Authors');
+    await queryInterface.dropTable('blogs');
   }
 };
