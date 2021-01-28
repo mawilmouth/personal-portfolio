@@ -4,18 +4,16 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const { STRING } = DataTypes;
 
-  class Blog extends Model {
-
+  class Category extends Model {
     static associate(models) {}
   };
 
-  Blog.init({
-    name: STRING,
-    apiKey: STRING
+  Category.init({
+    title: STRING
   }, {
     sequelize,
-    modelName: 'Blog',
+    modelName: 'Category',
   });
-
-  return Blog;
+  
+  return Category;
 };
