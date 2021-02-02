@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
   
   class User extends Model {
     static associate(models) {}
+
+    fullName() {
+      const {firstName, lastName} = this;
+
+      return `${firstName} ${lastName}`;
+    }
   };
 
   User.init({
@@ -13,10 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     lastName: STRING,
     username: STRING,
     email: STRING,
-    password: STRING
+    password: STRING,
+    authToken: STRING
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'users',
   });
 
   return User;

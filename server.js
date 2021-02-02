@@ -43,6 +43,7 @@ nextApp.prepare().then(() => {
   app.get('*', (req, res) => handle(req, res));
 
   app.use('/api/contact', require('./server/api/contact'));
+  app.use('/api/user', require('./server/api/user'));
 
   app.use(Sentry.Handlers.errorHandler());
 
