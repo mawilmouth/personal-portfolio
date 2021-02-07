@@ -38,11 +38,13 @@ nextApp.prepare().then(() => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use('/api/contact', apiLimiter);
+  app.use('/api/user', apiLimiter);
 
   // Routes
   app.get('*', (req, res) => handle(req, res));
 
   app.use('/api/contact', require('./server/api/contact'));
+  app.use('/api/user', require('./server/api/user'));
 
   app.use(Sentry.Handlers.errorHandler());
 
