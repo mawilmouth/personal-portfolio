@@ -38,6 +38,7 @@ nextApp.prepare().then(() => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use('/api/contact', apiLimiter);
+  app.use('/api/user', apiLimiter);
 
   // Routes
   app.get('*', (req, res) => handle(req, res));

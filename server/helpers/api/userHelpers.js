@@ -16,6 +16,25 @@ function validateUserInputs(data) {
   return valid;
 }
 
+const validateIdParam = (id) => !!Number(id);
+
+function validateUserUpdateInputs(data) {
+  let valid = true;
+
+  try {
+    if (!data.firstName) return valid = false;
+    if (!data.lastName) return valid = false;
+    if (!data.username) return valid = false;
+    if (!data.email) return valid = false;
+  } catch (ex) {
+    valid = false;
+  }
+  
+  return valid;
+}
+
 module.exports = {
-  validateUserInputs
+  validateUserInputs,
+  validateIdParam,
+  validateUserUpdateInputs
 };
