@@ -6,6 +6,7 @@ const Sentry = require('@sentry/node');
 const Tracing = require('@sentry/tracing');
 const db = require('./server/connection');
 const colors = require('./server/helpers/logging/colors');
+const authMiddleware = require('./server/middleware/auth');
 
 const apiLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
