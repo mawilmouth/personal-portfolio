@@ -39,12 +39,13 @@ nextApp.prepare().then(() => {
   app.use(bodyParser.json());
   app.use('/api/contact', apiLimiter);
   app.use('/api/user', apiLimiter);
+  app.use('/api/auth', apiLimiter);
 
   // Routes
   app.get('*', (req, res) => handle(req, res));
-
   app.use('/api/contact', require('./server/api/contact'));
   app.use('/api/user', require('./server/api/user'));
+  app.use('/api/auth', require('./server/api/auth'));
 
   app.use(Sentry.Handlers.errorHandler());
 

@@ -3,7 +3,6 @@ const uuid = require('uuid');
 const bcrypt = require('bcrypt');
 const models = require('../models');
 const helpers = require('../helpers/api/userHelpers');
-
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -68,8 +67,6 @@ router.patch('/:id', async (req, res) => {
   const validParam = helpers.validateIdParam(req.params.id);
   const validBody = helpers.validateUserUpdateInputs(req.body);
   const authToken = req.header('auth-token');
-
-  console.log(req.body);
 
   if (!validParam || !validBody) {
     Object.assign(response, { msg: 'Bad Request' });
