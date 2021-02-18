@@ -7,6 +7,7 @@ const Tracing = require('@sentry/tracing');
 const db = require('./server/connection');
 const colors = require('./server/helpers/logging/colors');
 const authMiddleware = require('./server/middleware/auth');
+const blogMiddleware = require('./server/middleware/blog');
 
 const apiLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
@@ -41,13 +42,20 @@ nextApp.prepare().then(() => {
   app.use('/api/contact', apiLimiter);
   app.use('/api/user', apiLimiter);
   app.use('/api/auth', apiLimiter);
+  app.use('/api/admin', authMiddleware);
+  app.use('/api/admin', blogMiddleware);
 
-  // Routes
-  app.get('*', (req, res) => handle(req, res));
+  // Public Routes
   app.use('/api/contact', require('./server/api/contact'));
   app.use('/api/user', require('./server/api/user'));
   app.use('/api/auth', require('./server/api/auth'));
 
+  // Private Routes
+  app.use('/api/admin/posts', require('./server/api/admin/posts'));
+
+  // Catch All Routes
+  app.get('*', (req, res) => handle(req, res));
+  
   app.use(Sentry.Handlers.errorHandler());
 
   app.listen(port, host, (ex) => {
