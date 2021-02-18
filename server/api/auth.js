@@ -16,7 +16,7 @@ router.post('/sign_in', async (req, res) => {
     return res.status(400).json(response);
   }
 
-  let user = await models.users.findOne({
+  let user = await models.User.findOne({
     where: { username: req.body.username }
   });
 
@@ -58,28 +58,28 @@ router.post('/sign_out', async (req, res) => {
   const isValid = helpers.validateSignOutBody(req.body);
 
   if (!isValid) {
-    Object.assign(response, { msg: 'Bad Request' });
+    Object.assign(response, { message: 'Bad Request' });
     return res.status(400).json(response);
   }
 
   const authToken = req.header('auth-token');
-  const user = await models.users.findOne({
+  const user = await models.User.findOne({
     where: { id: req.body.id }
   });
 
   if (!user) {
-    Object.assign(response, { msg: 'User not found' });
+    Object.assign(response, { message: 'User not found' });
     return res.status(404).json(response);
   }
 
   if (!authToken || authToken !== user.authToken) {
-    Object.assign(response, { msg: 'Unauthorized' });
+    Object.assign(response, { message: 'Unauthorized' });
     return res.status(401).json(response);
   }
 
   await user.update({ authToken: null });
 
-  Object.assign(response, { msg: `Successfully signed out ${user.username}.` });
+  Object.assign(response, { message: `Successfully signed out ${user.username}.` });
 
   res.status(status).json(response);
 });

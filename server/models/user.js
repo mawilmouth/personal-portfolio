@@ -1,11 +1,16 @@
-'use strict';
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   const { STRING } = DataTypes;
   
   class User extends Model {
-    static associate(models) {}
+    static associate({ Blog }) {
+      User.hasOne(Blog, {
+        foreignKey: {
+          name: 'ownerId'
+        }
+      });
+    }
 
     fullName() {
       const {firstName, lastName} = this;
@@ -23,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     authToken: STRING
   }, {
     sequelize,
-    modelName: 'users',
+    modelName: 'User',
+    tableName: 'users'
   });
 
   return User;

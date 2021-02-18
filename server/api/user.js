@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
       password
     } = req.body;
 
-    const existingUser = await models.users.findOne({
+    const existingUser = await models.User.findOne({
       where: { username }
     });
 
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hash = bcrypt.hashSync(password, salt);
 
-      const user = await models.users.create({
+      const user = await models.User.create({
         firstName,
         lastName,
         username,
@@ -69,27 +69,27 @@ router.patch('/:id', async (req, res) => {
   const authToken = req.header('auth-token');
 
   if (!validParam || !validBody) {
-    Object.assign(response, { msg: 'Bad Request' });
+    Object.assign(response, { message: 'Bad Request' });
     return res.status(401).json(response);
   }
 
-  let user = await models.users.findOne({
+  let user = await models.User.findOne({
     where: { id: req.params.id }
   });
 
   if (!user) {
-    Object.assign(response, { msg: 'User not found' });
+    Object.assign(response, { message: 'User not found' });
     return res.status(404).json(response);
   }
 
   if (!authToken || user.authToken !== authToken) {
-    Object.assign(response, { msg: 'Unauthorized' });
+    Object.assign(response, { message: 'Unauthorized' });
     return res.status(401).json(response);
   }
 
   const newAuthToken = uuid.v4();
 
-  await models.users.update({
+  await models.User.update({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     username: req.body.username,
@@ -99,7 +99,7 @@ router.patch('/:id', async (req, res) => {
     where: { id: req.params.id }
   });
 
-  user = await models.users.findOne({
+  user = await models.User.findOne({
     where: { id: req.params.id }
   });
 
