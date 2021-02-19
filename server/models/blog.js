@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   const { STRING, INTEGER } = DataTypes;
 
   class Blog extends Model {
-    static associate({ User, Author, Post }) {
+    static associate({ User, Author, Post, Category }) {
       Blog.belongsTo(User, {
         foreignKey: {
           name: 'id'
@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Blog.hasMany(Post, {
+        foreignKey: {
+          name: 'blogId'
+        }
+      });
+
+      Blog.hasMany(Category, {
         foreignKey: {
           name: 'blogId'
         }
