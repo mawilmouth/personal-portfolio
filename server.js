@@ -52,6 +52,7 @@ nextApp.prepare().then(() => {
 
   // Private Routes
   app.use('/api/admin/posts', require('./server/api/admin/posts'));
+  app.use('/api/admin/categories', require('./server/api/admin/categories'));
 
   // Catch All Routes
   app.get('*', (req, res) => handle(req, res));
