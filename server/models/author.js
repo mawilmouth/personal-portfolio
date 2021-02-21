@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         }
       });
     }
+
+    fullName() {
+      const { firstName, lastName } = this;
+
+      return `${firstName} ${lastName}`;
+    }
   };
 
   Author.init({
