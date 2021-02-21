@@ -1,8 +1,8 @@
-function validateCreateAuthorInputs(category) {
+function validateCreateAuthorInputs(author) {
   let errors = [];
 
-  if (!category.firstName) errors.push('First name cannot be blank.');
-  if (!category.lastName) errors.push('Last name cannot be blank.');
+  if (!author.firstName) errors.push('First name cannot be blank.');
+  if (!author.lastName) errors.push('Last name cannot be blank.');
 
   return errors;
 }
