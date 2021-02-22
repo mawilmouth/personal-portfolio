@@ -33,9 +33,16 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Blog.init({
-    name: STRING,
-    ownerId: INTEGER,
-    apiKey: STRING
+    name: {
+      type: STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        notNull: true
+      }
+    },
+    apiKey: STRING,
+    ownerId: INTEGER
   }, {
     sequelize,
     modelName: 'Blog',
