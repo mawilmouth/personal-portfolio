@@ -54,6 +54,7 @@ nextApp.prepare().then(() => {
   app.use('/api/admin/posts', require('./server/api/admin/posts'));
   app.use('/api/admin/categories', require('./server/api/admin/categories'));
   app.use('/api/admin/authors', require('./server/api/admin/authors'));
+  app.use('/api/admin/blogs', require('./server/api/admin/blogs'));
 
   // Catch All Routes
   app.get('*', (req, res) => handle(req, res));
