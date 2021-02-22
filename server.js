@@ -42,8 +42,9 @@ nextApp.prepare().then(() => {
   app.use('/api/contact', apiLimiter);
   app.use('/api/user', apiLimiter);
   app.use('/api/auth', apiLimiter);
+  app.use('/api/blog', blogMiddleware.setPublicBlog);
   app.use('/api/admin', authMiddleware);
-  app.use('/api/admin', blogMiddleware);
+  app.use('/api/admin', blogMiddleware.setBlog);
 
   // Public Routes
   app.use('/api/contact', require('./server/api/contact'));
