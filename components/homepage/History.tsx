@@ -5,6 +5,10 @@ import {
   CSSIcon,
   SassIcon,
   JSIcon,
+  TSIcon,
+  ReduxIcon,
+  AWSIcon,
+  PostgresIcon,
   JqueryIcon,
   ReactIcon,
   JestIcon,
@@ -30,6 +34,8 @@ const HistoryCard: React.FC<HistoryCardProps> = (props) => {
                   <CSSIcon className="icon css" />
                   <SassIcon className="icon sass" />
                   <JSIcon className="icon js" />
+                  <TSIcon className="icon ts" />
+                  <ReduxIcon className="icon redux" />
                   <JqueryIcon className="icon jquery" />
                   <ReactIcon className="icon react" />
                   <JestIcon className="icon jest" />
@@ -37,6 +43,8 @@ const HistoryCard: React.FC<HistoryCardProps> = (props) => {
                   <NodeIcon className="icon node" />
                   <RailsIcon className="icon rails" />
                   <MySQLIcon className="icon sql" />
+                  <PostgresIcon className="icon psql" />
+                  <AWSIcon className="icon aws" />
                   <GitIcon className="icon git" />
                 </div>
               </div>
