@@ -1,5 +1,5 @@
 export const headerData = {
   heading: "michael wilmouth",
-  subheading: 'web developer & react enthusiast',
+  subheading: 'full-stack software engineer',
   jumpTo: 'about'
 };
